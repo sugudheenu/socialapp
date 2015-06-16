@@ -1,1 +1,1 @@
-# socialapp
+# Social Command line app
