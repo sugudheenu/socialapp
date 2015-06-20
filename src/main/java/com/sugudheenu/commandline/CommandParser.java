@@ -1,7 +1,6 @@
 package com.sugudheenu.commandline;
 
 import com.sugudheenu.commands.Command;
-import com.sugudheenu.commands.EmptyCommand;
 import com.sugudheenu.commands.GetUserPostsCommand;
 import com.sugudheenu.repository.UsersPostRepository;
 
@@ -14,10 +13,6 @@ public class CommandParser {
     }
 
     public Command parse(String input) {
-        if (input.isEmpty()) {
-            return new EmptyCommand();
-        } else {
-            return new GetUserPostsCommand(input, usersPostRepository);
-        }
-    }
+        return new GetUserPostsCommand(input, usersPostRepository);
+   }
 }
