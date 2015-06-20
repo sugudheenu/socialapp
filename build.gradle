@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'docker'
+apply plugin: 'groovy'
 apply plugin: 'application'
 
 buildscript {
@@ -17,6 +18,15 @@ mainClassName = 'com.sugudheenu.commandline.Start'
 
 repositories {
     mavenCentral()
+}
+
+
+dependencies {
+    testCompile(
+            "org.codehaus.groovy:groovy:2.4.3",
+            "org.spockframework:spock-core:1.0-groovy-2.4",
+            "com.github.stefanbirkner:system-rules:1.11.0"
+    )
 }
 
 run {
