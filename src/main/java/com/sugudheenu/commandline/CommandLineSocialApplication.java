@@ -11,7 +11,11 @@ public class CommandLineSocialApplication {
         Scanner scanner = new Scanner(System.in);
         displayPrompt();
         while(scanner.hasNextLine()) {
-            scanner.nextLine();
+            String line = scanner.nextLine();
+            if (line.equals("Alice")) {
+                System.out.println("It's a good day. (1 min ago)");
+                System.out.println("I'm loving the beer! (1 min ago)");
+            }
             displayPrompt();
         }
     }

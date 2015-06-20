@@ -1,31 +1,11 @@
 package com.sugudheenu.acceptance
-
-import com.sugudheenu.commandline.CommandLineSocialApplication
-import com.sugudheenu.domain.Post
-import org.junit.Rule
-import org.junit.contrib.java.lang.system.SystemOutRule
-import org.junit.contrib.java.lang.system.TextFromStandardInputStream
-import spock.lang.Specification
-
-import java.time.Instant
-import java.util.concurrent.ConcurrentHashMap
+import com.sugudheenu.acceptance.dsl.ApplicationDsl
 
 import static java.lang.System.lineSeparator
-import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream
 
-class CommandLineSocialApplicationReadUserTimelineSpec extends Specification {
-    def application
-    @Rule
-    public final SystemOutRule output = new SystemOutRule().enableLog()
-    @Rule
-    public final TextFromStandardInputStream input = emptyStandardInputStream()
-    private Map<String,List<Post>> posts = new ConcurrentHashMap<>()
+class CommandLineSocialApplicationReadUserTimelineSpec extends CommandLineSocialApplicationBaseSpec implements ApplicationDsl {
 
-    def setup() {
-        application = new CommandLineSocialApplication()
-    }
-
-    def "bob can view alice timeline"() {
+    def "user can read multiple posts from timeline"() {
         given:
             alice().hasPosts("It's a good day.","I'm loving the beer!")
         when:
@@ -45,20 +25,19 @@ class CommandLineSocialApplicationReadUserTimelineSpec extends Specification {
     class UserDsl {
         String name = ""
 
-        def hasPosts(String... message) {
-            message.each {
-                posts.computeIfAbsent(name, {k -> new ArrayList<Post>()}).add(new Post(it, Instant.now()))
+        def hasPosts(String... messages) {
+            messages.each { message ->
+                usersPosts.post(name, message)
             }
         }
 
         void canSee(String... posts) {
-           assert output.log.split(lineSeparator()) == posts
+           assert output().split(lineSeparator()).collect {it.replaceAll("> ","")}.findAll {!it.empty} == posts as List
         }
 
         def viewsTimelineOf(UserDsl user) {
-              posts.get(user.name).each {
-                  System.out.println(it.post());
-              }
+            applicationReceivesCommand(user.name)
         }
+
     }
 }

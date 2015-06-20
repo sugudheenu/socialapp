@@ -1,29 +1,12 @@
 package com.sugudheenu.acceptance
 
-import com.sugudheenu.commandline.CommandLineSocialApplication
-import org.junit.Rule
-import org.junit.contrib.java.lang.system.SystemOutRule
-import org.junit.contrib.java.lang.system.TextFromStandardInputStream
-import spock.lang.Specification
-
-import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream
-
-class CommandLineSocialApplicationSpec extends Specification {
+class CommandLineSocialApplicationSpec extends CommandLineSocialApplicationBaseSpec {
     private static final String PROMPT = "> "
     public static final String EMPTY_COMMAND = ""
-    def application
-    @Rule
-    public final SystemOutRule output = new SystemOutRule().enableLog().muteForSuccessfulTests();
-    @Rule
-    public final TextFromStandardInputStream input = emptyStandardInputStream()
-
-    def setup() {
-        application = new CommandLineSocialApplication()
-    }
 
     def "starts up with a command prompt"() {
         when:
-            applicationStarts()
+            applicationStars();
         then:
             userCanSee(PROMPT);
     }
@@ -35,17 +18,12 @@ class CommandLineSocialApplicationSpec extends Specification {
             userCanSee(PROMPT, PROMPT, PROMPT);
     }
 
-
     def userEnters(String... commands) {
-        input.provideLines(commands)
-        applicationStarts()
+        applicationReceivesCommand(commands)
     }
 
     void userCanSee(String... expected) {
-        assert output.getLog() == expected.join()
+        assert output() == expected.join()
     }
 
-    def applicationStarts() {
-        application.run()
-    }
 }
