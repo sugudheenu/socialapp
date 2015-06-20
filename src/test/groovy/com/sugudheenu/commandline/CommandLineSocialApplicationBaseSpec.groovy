@@ -1,6 +1,5 @@
-package com.sugudheenu.acceptance
+package com.sugudheenu.commandline
 
-import com.sugudheenu.commandline.CommandLineSocialApplication
 import com.sugudheenu.repository.InMemoryUsersPostRepository
 import org.junit.Rule
 import org.junit.contrib.java.lang.system.SystemOutRule
@@ -10,6 +9,7 @@ import spock.lang.Specification
 import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream
 
 class CommandLineSocialApplicationBaseSpec extends Specification {
+
     @Rule
     public final SystemOutRule output = new SystemOutRule().enableLog()
     @Rule
@@ -35,4 +35,5 @@ class CommandLineSocialApplicationBaseSpec extends Specification {
     def applicationStars() {
         application.run()
     }
+
 }

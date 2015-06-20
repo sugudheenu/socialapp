@@ -1,9 +1,7 @@
 package com.sugudheenu.commandline;
 
-import com.sugudheenu.domain.Post;
 import com.sugudheenu.repository.UsersPostRepository;
 
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -11,21 +9,19 @@ import java.util.Scanner;
  */
 public class CommandLineSocialApplication {
 
-    private final UsersPostRepository usersPostRepository;
+    private final CommandParser commandParser;
 
     public CommandLineSocialApplication(UsersPostRepository usersPostRepository) {
-        this.usersPostRepository = usersPostRepository;
+        commandParser = new CommandParser(usersPostRepository);
     }
 
     public void run() {
         Scanner scanner = new Scanner(System.in);
         displayPrompt();
         while(scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            if (!line.isEmpty()) {
-                List<Post> posts = usersPostRepository.getPosts(line);
-                posts.stream().forEach((post) -> System.out.println(post.feedEntry()));
-            }
+            commandParser.parse(scanner.nextLine()).execute((output) -> {
+                output.forEach((it) -> System.out.println(it));
+            });
             displayPrompt();
         }
     }

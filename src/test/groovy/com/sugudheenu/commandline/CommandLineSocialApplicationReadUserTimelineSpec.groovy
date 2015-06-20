@@ -1,9 +1,8 @@
-package com.sugudheenu.acceptance
-import com.sugudheenu.acceptance.dsl.ApplicationDsl
+package com.sugudheenu.commandline
 
 import static java.lang.System.lineSeparator
 
-class CommandLineSocialApplicationReadUserTimelineSpec extends CommandLineSocialApplicationBaseSpec implements ApplicationDsl {
+class CommandLineSocialApplicationReadUserTimelineSpec extends CommandLineSocialApplicationBaseSpec {
 
     def "user can read multiple posts from timeline"() {
         given:
@@ -11,7 +10,15 @@ class CommandLineSocialApplicationReadUserTimelineSpec extends CommandLineSocial
         when:
             bob().viewsTimelineOf(alice())
         then:
-            bob().canSee("It's a good day. (1 min ago)", "I'm loving the beer! (1 min ago)")
+            bob().canSee("It's a good day. (Just Now)", "I'm loving the beer! (Just Now)")
+    }
+
+    def "empty timeline for a user results with nothing" () {
+        when:
+            alice().viewsTimelineOf(bob())
+        then:
+            alice().canSeeNothing()
+
     }
 
     def bob() {
@@ -39,5 +46,9 @@ class CommandLineSocialApplicationReadUserTimelineSpec extends CommandLineSocial
             applicationReceivesCommand(user.name)
         }
 
+        void canSeeNothing() {
+            canSee()
+        }
     }
+
 }

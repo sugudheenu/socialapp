@@ -1,6 +1,7 @@
-package com.sugudheenu.acceptance
+package com.sugudheenu.commandline
 
 class CommandLineSocialApplicationSpec extends CommandLineSocialApplicationBaseSpec {
+
     private static final String PROMPT = "> "
     public static final String EMPTY_COMMAND = ""
 

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class InMemoryUsersPostRepository implements UsersPostRepository {
+
     private final Map<String,List<Post>> posts = new HashMap<>();
 
     @Override
@@ -18,6 +19,7 @@ public class InMemoryUsersPostRepository implements UsersPostRepository {
 
     @Override
     public List<Post> getPosts(String user) {
-        return posts.get(user);
+        return posts.getOrDefault(user, new ArrayList<>());
     }
+
 }
