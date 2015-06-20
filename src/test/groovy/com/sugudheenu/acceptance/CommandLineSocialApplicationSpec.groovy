@@ -13,7 +13,7 @@ class CommandLineSocialApplicationSpec extends Specification {
     public static final String EMPTY_COMMAND = ""
     def application
     @Rule
-    public final SystemOutRule output = new SystemOutRule().enableLog();
+    public final SystemOutRule output = new SystemOutRule().enableLog().muteForSuccessfulTests();
     @Rule
     public final TextFromStandardInputStream input = emptyStandardInputStream()
 
@@ -23,7 +23,7 @@ class CommandLineSocialApplicationSpec extends Specification {
 
     def "starts up with a command prompt"() {
         when:
-            applicationIsRunning()
+            applicationStarts()
         then:
             userCanSee(PROMPT);
     }
@@ -31,20 +31,21 @@ class CommandLineSocialApplicationSpec extends Specification {
     def "application is listening to commands"() {
         when:
             userEnters(EMPTY_COMMAND, EMPTY_COMMAND)
-            applicationIsRunning()
         then:
             userCanSee(PROMPT, PROMPT, PROMPT);
     }
 
-    def userEnters(String... command) {
-        input.provideLines(command)
+
+    def userEnters(String... commands) {
+        input.provideLines(commands)
+        applicationStarts()
     }
 
     void userCanSee(String... expected) {
         assert output.getLog() == expected.join()
     }
 
-    def applicationIsRunning() {
+    def applicationStarts() {
         application.run()
     }
 }
