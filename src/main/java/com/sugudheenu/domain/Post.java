@@ -3,6 +3,7 @@ package com.sugudheenu.domain;
 import java.time.Instant;
 
 public class Post {
+
     private final String message;
     private final Instant timestamp;
 
@@ -11,7 +12,8 @@ public class Post {
         this.timestamp = timestamp;
     }
 
-    public String feedEntry() {
-        return message + " (1 min ago)";
+    public String get() {
+        return message + " (Just Now)";
     }
+
 }
