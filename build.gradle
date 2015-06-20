@@ -1,4 +1,27 @@
 apply plugin: 'java'
+apply plugin: 'docker'
+apply plugin: 'application'
 
+buildscript {
+    repositories { jcenter() }
+    dependencies {
+        classpath 'se.transmode.gradle:gradle-docker:1.2'
+    }
+}
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+group = "sugudheenu"
+applicationName = "socialapp"
+mainClassName = 'com.sugudheenu.commandline.Start'
+
+repositories {
+    mavenCentral()
+}
+
+run {
+    main = "com.sugudheenu.commandline.Start"
+    standardInput = System.in
+}
+
+
