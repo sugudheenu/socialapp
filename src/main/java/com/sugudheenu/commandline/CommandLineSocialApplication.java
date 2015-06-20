@@ -1,5 +1,9 @@
 package com.sugudheenu.commandline;
 
+import com.sugudheenu.domain.Post;
+import com.sugudheenu.repository.UsersPostRepository;
+
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -7,14 +11,20 @@ import java.util.Scanner;
  */
 public class CommandLineSocialApplication {
 
+    private final UsersPostRepository usersPostRepository;
+
+    public CommandLineSocialApplication(UsersPostRepository usersPostRepository) {
+        this.usersPostRepository = usersPostRepository;
+    }
+
     public void run() {
         Scanner scanner = new Scanner(System.in);
         displayPrompt();
         while(scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            if (line.equals("Alice")) {
-                System.out.println("It's a good day. (1 min ago)");
-                System.out.println("I'm loving the beer! (1 min ago)");
+            if (!line.isEmpty()) {
+                List<Post> posts = usersPostRepository.getPosts(line);
+                posts.stream().forEach((post) -> System.out.println(post.feedEntry()));
             }
             displayPrompt();
         }

@@ -11,7 +11,7 @@ public class Post {
         this.timestamp = timestamp;
     }
 
-    public String post() {
+    public String feedEntry() {
         return message + " (1 min ago)";
     }
 }

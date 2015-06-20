@@ -20,7 +20,7 @@ class CommandLineSocialApplicationBaseSpec extends Specification {
 
     def setup() {
         usersPosts = new InMemoryUsersPostRepository()
-        application = new CommandLineSocialApplication()
+        application = new CommandLineSocialApplication(usersPosts)
     }
 
     def output() {

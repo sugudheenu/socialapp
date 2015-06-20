@@ -15,4 +15,9 @@ public class InMemoryUsersPostRepository implements UsersPostRepository {
     public void post(String user, String message) {
         posts.computeIfAbsent(user, k -> new ArrayList<>()).add(new Post(message, Instant.now()));
     }
+
+    @Override
+    public List<Post> getPosts(String user) {
+        return posts.get(user);
+    }
 }
