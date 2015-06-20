@@ -6,15 +6,18 @@ import java.util.Scanner;
  * Command line social application
  */
 public class CommandLineSocialApplication {
+
     public void run() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("> ");
-        System.out.flush();
+        displayPrompt();
         while(scanner.hasNextLine()) {
             scanner.nextLine();
-            System.out.print("> ");
-            System.out.flush();
+            displayPrompt();
         }
+    }
 
+    private void displayPrompt() {
+        System.out.print("> ");
+        System.out.flush();
     }
 }
