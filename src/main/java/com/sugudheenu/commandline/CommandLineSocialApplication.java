@@ -19,11 +19,13 @@ public class CommandLineSocialApplication {
         Scanner scanner = new Scanner(System.in);
         displayPrompt();
         while(scanner.hasNextLine()) {
-            commandParser.parse(scanner.nextLine()).execute((output) -> {
-                output.forEach((it) -> System.out.println(it));
-            });
+            commandParser.parse(scanner.nextLine()).execute((output) -> output.forEach(this::displayOutput));
             displayPrompt();
         }
+    }
+
+    private void displayOutput(String output) {
+        System.out.println(output);
     }
 
     private void displayPrompt() {

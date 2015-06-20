@@ -18,7 +18,6 @@ class CommandLineSocialApplicationReadUserTimelineSpec extends CommandLineSocial
             alice().viewsTimelineOf(bob())
         then:
             alice().canSeeNothing()
-
     }
 
     def bob() {
