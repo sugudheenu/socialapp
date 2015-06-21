@@ -17,7 +17,7 @@ public class InMemoryUsersPostRepository implements UsersPostRepository {
     }
 
     @Override
-    public List<Post> getPosts(String user) {
-        return posts.getOrDefault(user, new ArrayList<>());
+    public List<Post> getPosts(User user) {
+        return posts.getOrDefault(user.getUser(), new ArrayList<>());
     }
 }

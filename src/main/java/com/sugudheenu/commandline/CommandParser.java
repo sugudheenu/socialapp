@@ -2,6 +2,7 @@ package com.sugudheenu.commandline;
 
 import com.sugudheenu.commands.Command;
 import com.sugudheenu.commands.GetUserPostsCommand;
+import com.sugudheenu.domain.User;
 import com.sugudheenu.repository.UsersPostRepository;
 
 public class CommandParser {
@@ -12,6 +13,6 @@ public class CommandParser {
     }
 
     public Command parse(String input) {
-        return new GetUserPostsCommand(input, usersPostRepository);
+        return new GetUserPostsCommand(User.user(input), usersPostRepository);
    }
 }
