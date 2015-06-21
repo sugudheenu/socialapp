@@ -2,6 +2,8 @@ package com.sugudheenu.domain;
 
 import java.time.Instant;
 
+import static com.sugudheenu.common.TimeDifferenceTextFromatter.timeDifferenceAsText;
+
 public class Post {
     private final String message;
     private final Instant timestamp;
@@ -20,6 +22,6 @@ public class Post {
     }
 
     public String get() {
-        return message + " (Just Now)";
+        return String.format("%s (%s)",message, timeDifferenceAsText(timestamp));
     }
 }
