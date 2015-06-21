@@ -5,7 +5,6 @@ import com.sugudheenu.commands.GetUserPostsCommand;
 import com.sugudheenu.repository.UsersPostRepository;
 
 public class CommandParser {
-
     private UsersPostRepository usersPostRepository;
 
     public CommandParser(UsersPostRepository usersPostRepository) {

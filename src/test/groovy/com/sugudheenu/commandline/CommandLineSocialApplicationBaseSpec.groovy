@@ -9,7 +9,6 @@ import spock.lang.Specification
 import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.emptyStandardInputStream
 
 class CommandLineSocialApplicationBaseSpec extends Specification {
-
     @Rule
     public final SystemOutRule output = new SystemOutRule().enableLog()
     @Rule
@@ -35,5 +34,4 @@ class CommandLineSocialApplicationBaseSpec extends Specification {
     def applicationStars() {
         application.run()
     }
-
 }

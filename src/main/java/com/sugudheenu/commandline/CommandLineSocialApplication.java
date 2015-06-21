@@ -8,7 +8,6 @@ import java.util.Scanner;
  * Command line social application
  */
 public class CommandLineSocialApplication {
-
     private final CommandParser commandParser;
 
     public CommandLineSocialApplication(UsersPostRepository usersPostRepository) {

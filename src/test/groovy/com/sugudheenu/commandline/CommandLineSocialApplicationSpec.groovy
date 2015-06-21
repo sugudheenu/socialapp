@@ -1,7 +1,6 @@
 package com.sugudheenu.commandline
 
 class CommandLineSocialApplicationSpec extends CommandLineSocialApplicationBaseSpec {
-
     private static final String PROMPT = "> "
     public static final String EMPTY_COMMAND = ""
 
@@ -26,5 +25,4 @@ class CommandLineSocialApplicationSpec extends CommandLineSocialApplicationBaseS
     void userCanSee(String... expected) {
         assert output() == expected.join()
     }
-
 }

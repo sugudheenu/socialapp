@@ -4,10 +4,10 @@ import com.sugudheenu.repository.UsersPostRepository;
 
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 public class GetUserPostsCommand implements Command {
-
     private final String input;
     private final UsersPostRepository usersPostRepository;
 
@@ -19,7 +19,7 @@ public class GetUserPostsCommand implements Command {
     @Override
     public void execute(Consumer<List<String>> consumer) {
         List<String> output = usersPostRepository.getPosts(input).stream().map((it) -> it.get())
-                .collect(Collectors.toList());
+                .collect(toList());
         consumer.accept(output);
     }
 }
