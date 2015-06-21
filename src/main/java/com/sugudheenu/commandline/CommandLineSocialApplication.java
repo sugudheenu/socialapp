@@ -1,6 +1,6 @@
 package com.sugudheenu.commandline;
 
-import com.sugudheenu.repository.Posts;
+import com.sugudheenu.repository.TimeLine;
 
 import java.util.Scanner;
 
@@ -10,8 +10,8 @@ import java.util.Scanner;
 public class CommandLineSocialApplication {
     private final CommandParser commandParser;
 
-    public CommandLineSocialApplication(Posts posts) {
-        commandParser = new CommandParser(posts);
+    public CommandLineSocialApplication(TimeLine timeLine) {
+        commandParser = new CommandParser(timeLine);
     }
 
     public void run() {

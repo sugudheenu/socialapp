@@ -1,18 +1,18 @@
 package com.sugudheenu.commandline;
 
 import com.sugudheenu.commands.Command;
-import com.sugudheenu.commands.GetUserPostsCommand;
+import com.sugudheenu.commands.GetUserTimeLineCommand;
 import com.sugudheenu.domain.User;
-import com.sugudheenu.repository.Posts;
+import com.sugudheenu.repository.TimeLine;
 
 public class CommandParser {
-    private Posts posts;
+    private TimeLine timeLine;
 
-    public CommandParser(Posts posts) {
-        this.posts = posts;
+    public CommandParser(TimeLine timeLine) {
+        this.timeLine = timeLine;
     }
 
     public Command parse(String input) {
-        return new GetUserPostsCommand(User.user(input), posts);
+        return new GetUserTimeLineCommand(User.user(input), timeLine);
    }
 }

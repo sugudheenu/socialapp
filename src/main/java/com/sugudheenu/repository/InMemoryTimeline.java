@@ -10,7 +10,7 @@ import java.util.Map;
 
 import static java.util.stream.Collectors.toList;
 
-public class InMemoryPosts implements Posts {
+public class InMemoryTimeLine implements TimeLine {
     private final Map<User, List<Post>> posts = new HashMap<>();
 
     @Override

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Repository to store users posts
  */
-public interface Posts {
+public interface TimeLine {
     void post(User user, Post post);
 
     List<Post> get(User user);

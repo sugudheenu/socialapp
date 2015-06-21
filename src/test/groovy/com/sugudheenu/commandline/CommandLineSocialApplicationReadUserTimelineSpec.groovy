@@ -36,7 +36,7 @@ class CommandLineSocialApplicationReadUserTimelineSpec extends CommandLineSocial
 
         def hasPosts(String... messages) {
             messages.each { message ->
-                usersPosts.post(user(name), post(message, now()))
+                timeline.post(user(name), post(message, now()))
             }
         }
 

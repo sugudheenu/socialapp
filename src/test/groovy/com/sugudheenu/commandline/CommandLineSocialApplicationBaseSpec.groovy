@@ -1,6 +1,6 @@
 package com.sugudheenu.commandline
 
-import com.sugudheenu.repository.InMemoryPosts
+import com.sugudheenu.repository.InMemoryTimeLine
 import org.junit.Rule
 import org.junit.contrib.java.lang.system.SystemOutRule
 import org.junit.contrib.java.lang.system.TextFromStandardInputStream
@@ -14,12 +14,12 @@ class CommandLineSocialApplicationBaseSpec extends Specification {
     @Rule
     public final TextFromStandardInputStream input = emptyStandardInputStream()
 
-    InMemoryPosts usersPosts
+    InMemoryTimeLine timeline
     CommandLineSocialApplication application
 
     def setup() {
-        usersPosts = new InMemoryPosts()
-        application = new CommandLineSocialApplication(usersPosts)
+        timeline = new InMemoryTimeLine()
+        application = new CommandLineSocialApplication(timeline)
     }
 
     def output() {
