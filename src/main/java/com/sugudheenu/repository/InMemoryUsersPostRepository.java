@@ -9,15 +9,15 @@ import java.util.List;
 import java.util.Map;
 
 public class InMemoryUsersPostRepository implements UsersPostRepository {
-    private final Map<String,List<Post>> posts = new HashMap<>();
+    private final Map<User, List<Post>> posts = new HashMap<>();
 
     @Override
     public void post(User user, Post post) {
-        posts.computeIfAbsent(user.getUser(), k -> new ArrayList<>()).add(post);
+        posts.computeIfAbsent(user, k -> new ArrayList<>()).add(post);
     }
 
     @Override
     public List<Post> getPosts(User user) {
-        return posts.getOrDefault(user.getUser(), new ArrayList<>());
+        return posts.getOrDefault(user, new ArrayList<>());
     }
 }
