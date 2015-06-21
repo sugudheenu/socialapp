@@ -13,7 +13,7 @@ class CommandLineSocialApplicationReadUserTimelineSpec extends CommandLineSocial
         when:
             bob().viewsTimelineOf(alice())
         then:
-            bob().canSee("It's a good day. (Just Now)", "I'm loving the beer! (Just Now)")
+            bob().canSee("I'm loving the beer! (Just Now)", "It's a good day. (Just Now)")
     }
 
     def "empty timeline for a user results with nothing" () {
