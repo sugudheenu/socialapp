@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class InMemoryUsersPostRepository implements UsersPostRepository {
+public class InMemoryPosts implements Posts {
     private final Map<User, List<Post>> posts = new HashMap<>();
 
     @Override

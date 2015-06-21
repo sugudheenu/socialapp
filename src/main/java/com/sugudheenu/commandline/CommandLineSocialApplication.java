@@ -1,6 +1,6 @@
 package com.sugudheenu.commandline;
 
-import com.sugudheenu.repository.UsersPostRepository;
+import com.sugudheenu.repository.Posts;
 
 import java.util.Scanner;
 
@@ -10,8 +10,8 @@ import java.util.Scanner;
 public class CommandLineSocialApplication {
     private final CommandParser commandParser;
 
-    public CommandLineSocialApplication(UsersPostRepository usersPostRepository) {
-        commandParser = new CommandParser(usersPostRepository);
+    public CommandLineSocialApplication(Posts posts) {
+        commandParser = new CommandParser(posts);
     }
 
     public void run() {

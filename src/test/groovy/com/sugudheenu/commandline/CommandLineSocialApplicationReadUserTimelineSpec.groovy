@@ -1,11 +1,9 @@
 package com.sugudheenu.commandline
-
 import com.sugudheenu.domain.User
-
-import java.time.Instant
 
 import static com.sugudheenu.domain.Post.post
 import static java.lang.System.lineSeparator
+import static java.time.Instant.now
 
 class CommandLineSocialApplicationReadUserTimelineSpec extends CommandLineSocialApplicationBaseSpec {
 
@@ -38,7 +36,7 @@ class CommandLineSocialApplicationReadUserTimelineSpec extends CommandLineSocial
 
         def hasPosts(String... messages) {
             messages.each { message ->
-                usersPosts.post(User.user(name), post(message, Instant.now()))
+                usersPosts.post(User.user(name), post(message, now()))
             }
         }
 
