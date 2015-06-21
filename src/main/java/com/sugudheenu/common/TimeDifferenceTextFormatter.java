@@ -5,7 +5,7 @@ import java.time.Instant;
 
 import static java.time.Instant.now;
 
-public class TimeDifferenceTextFromatter {
+public class TimeDifferenceTextFormatter {
     public static String timeDifferenceAsText(Instant timestamp) {
         Duration duration = Duration.between(now(), timestamp).abs();
         long seconds = duration.getSeconds();

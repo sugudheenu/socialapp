@@ -2,7 +2,7 @@ package com.sugudheenu.domain;
 
 import java.time.Instant;
 
-import static com.sugudheenu.common.TimeDifferenceTextFromatter.timeDifferenceAsText;
+import static com.sugudheenu.common.TimeDifferenceTextFormatter.timeDifferenceAsText;
 
 public class Post {
     private final String message;

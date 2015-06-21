@@ -2,7 +2,7 @@ package com.sugudheenu.common
 import spock.lang.Specification
 import spock.lang.Unroll
 
-import static TimeDifferenceTextFromatter.timeDifferenceAsText
+import static TimeDifferenceTextFormatter.timeDifferenceAsText
 import static java.time.Instant.now
 
 class TimeDifferenceTextFormatterSpec extends Specification {
