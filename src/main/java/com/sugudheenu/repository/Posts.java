@@ -11,5 +11,5 @@ import java.util.List;
 public interface Posts {
     void post(User user, Post post);
 
-    List<Post> getPosts(User user);
+    List<Post> get(User user);
 }

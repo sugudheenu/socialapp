@@ -11,6 +11,10 @@ public class Post {
         this.timestamp = timestamp;
     }
 
+    public Instant getTimestamp() {
+        return timestamp;
+    }
+
     public static Post post(String message, Instant timestamp) {
         return new Post(message,timestamp);
     }

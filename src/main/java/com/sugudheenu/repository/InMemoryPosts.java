@@ -3,10 +3,7 @@ package com.sugudheenu.repository;
 import com.sugudheenu.domain.Post;
 import com.sugudheenu.domain.User;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class InMemoryPosts implements Posts {
     private final Map<User, List<Post>> posts = new HashMap<>();
@@ -17,7 +14,9 @@ public class InMemoryPosts implements Posts {
     }
 
     @Override
-    public List<Post> getPosts(User user) {
-        return posts.getOrDefault(user, new ArrayList<>());
+    public List<Post> get(User user) {
+        List<Post> userPosts = posts.getOrDefault(user, new ArrayList<>());
+        userPosts.sort((o1, o2) -> o2.getTimestamp().compareTo(o1.getTimestamp()));
+        return userPosts;
     }
 }

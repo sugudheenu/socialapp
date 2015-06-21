@@ -19,7 +19,7 @@ public class GetUserPostsCommand implements Command {
 
     @Override
     public void execute(Consumer<List<String>> consumer) {
-        List<String> output = posts.getPosts(user).stream().map((it) -> it.get())
+        List<String> output = posts.get(user).stream().map((it) -> it.get())
                 .collect(toList());
         consumer.accept(output);
     }
