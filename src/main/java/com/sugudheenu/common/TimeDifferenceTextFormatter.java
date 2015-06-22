@@ -30,7 +30,7 @@ public class TimeDifferenceTextFormatter {
         }
     }
 
-    private static String timeInText(long timeUnit, String timeUnitInString) {
-        return String.format("%d %s ago", timeUnit, timeUnit == 1 ? timeUnitInString : timeUnitInString+"s");
+    private static String timeInText(long timeUnit, String timeUnitAsText) {
+        return String.format("%d %s ago", timeUnit, timeUnit == 1 ? timeUnitAsText : timeUnitAsText+"s");
     }
 }

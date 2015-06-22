@@ -7,7 +7,7 @@ import com.sugudheenu.repository.TimeLine;
 import java.util.Scanner;
 
 /**
- * Command line social application
+ * Command line social application.
  */
 public class CommandLineSocialApplication {
     private final CommandParser commandParser;

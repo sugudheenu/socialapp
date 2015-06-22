@@ -3,7 +3,7 @@ package com.sugudheenu.commands;
 import com.sugudheenu.domain.Post;
 import com.sugudheenu.domain.User;
 import com.sugudheenu.domain.WallPost;
-import com.sugudheenu.repository.FollowerBackFill;
+import com.sugudheenu.ports.FolloweNotifier;
 import com.sugudheenu.repository.TimeLine;
 import com.sugudheenu.repository.Wall;
 
@@ -19,14 +19,14 @@ public class PostUsersCommand implements Command {
     private final String message;
     private final TimeLine timeLine;
     private Wall wall;
-    private FollowerBackFill followerBackFill;
+    private FolloweNotifier followerNotifier;
 
-    public PostUsersCommand(User user, String message, TimeLine timeLine, Wall wall, FollowerBackFill followerBackFill) {
+    public PostUsersCommand(User user, String message, TimeLine timeLine, Wall wall, FolloweNotifier followerNotifier) {
         this.user = user;
         this.message = message;
         this.timeLine = timeLine;
         this.wall = wall;
-        this.followerBackFill = followerBackFill;
+        this.followerNotifier = followerNotifier;
     }
 
     @Override
@@ -35,7 +35,11 @@ public class PostUsersCommand implements Command {
         timeLine.post(user, post);
         WallPost wallPost = new WallPost(user, post);
         postToUsersOwnWall(wallPost);
-        followerBackFill.writeToFollowersWall(user, wallPost);
+        postToFollowersWall(wallPost);
+    }
+
+    private void postToFollowersWall(WallPost wallPost) {
+        followerNotifier.notifyUserPost(user, wallPost);
     }
 
     private void postToUsersOwnWall(WallPost wallPost) {
