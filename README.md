@@ -2,10 +2,10 @@
 
 
 
-How to run the application
+To Run
 --------------------------
-Make sure you have JDK8. You can build it using gradle
-
+Make sure you have JDK8.
+You can build it using gradle
 
 
 Run it as jar
