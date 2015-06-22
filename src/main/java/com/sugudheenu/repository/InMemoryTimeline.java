@@ -21,7 +21,7 @@ public class InMemoryTimeLine implements TimeLine {
     @Override
     public List<Post> get(User user) {
         return posts.getOrDefault(user, new ArrayList<>()).stream()
-                .sorted((post1, post2) -> post2.getTimestamp().compareTo(post1.getTimestamp()))
+                .sorted((post1, post2) -> post2.compareTo(post1))
                 .collect(toList());
     }
 }

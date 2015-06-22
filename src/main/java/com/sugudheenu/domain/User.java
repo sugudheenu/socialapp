@@ -1,14 +1,18 @@
 package com.sugudheenu.domain;
 
 public class User {
-    private final String user;
+    private final String name;
 
-    private User(String user) {
-        this.user = user;
+    private User(String name) {
+        this.name = name;
     }
 
     public static User user(String name) {
-        return new User(name);
+        return new User(name.trim());
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -18,12 +22,12 @@ public class User {
 
         User user1 = (User) o;
 
-        return !(user != null ? !user.equals(user1.user) : user1.user != null);
+        return !(name != null ? !name.equals(user1.name) : user1.name != null);
 
     }
 
     @Override
     public int hashCode() {
-        return user != null ? user.hashCode() : 0;
+        return name != null ? name.hashCode() : 0;
     }
 }

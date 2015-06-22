@@ -41,9 +41,8 @@ class CommandLineApplicationUserTimeLineBaseSpec extends CommandLineSocialApplic
     class UserDsl {
         String name = ""
         InMemoryTimeLine timeLine
-        List<String> commands = new ArrayList<>()
 
-        UserDsl(String name, InMemoryTimeLine timeLine) {
+        UserDsl(String name,  InMemoryTimeLine timeLine) {
             this.name = name
             this.timeLine = timeLine
         }
@@ -54,10 +53,11 @@ class CommandLineApplicationUserTimeLineBaseSpec extends CommandLineSocialApplic
             }
         }
 
-        void canSee(String... posts) {
-            assert output().split(lineSeparator())
-                    .collect {it.replaceAll("> ","")}
-                    .findAll {!it.empty} == posts as List
+        void canSee(String... expected) {
+            def actual = output().split(lineSeparator())
+                    .collect { it.replaceAll("> ", "") }
+                    .findAll { !it.empty }
+            assert actual == expected as List
         }
 
         def viewsTimeLineOf(UserDsl user) {
@@ -75,6 +75,16 @@ class CommandLineApplicationUserTimeLineBaseSpec extends CommandLineSocialApplic
 
         def viewsHisTimeLine() {
             commands.add(name)
+            applicationReceivesCommand(*commands)
+        }
+
+        def follows(UserDsl userToFollow) {
+            commands.add("$name follows $userToFollow.name")
+        }
+
+
+        def viewsHisWall() {
+            commands.add("$name wall")
             applicationReceivesCommand(*commands)
         }
     }
