@@ -1,7 +1,8 @@
-package com.sugudheenu.repository;
+package com.sugudheenu.ports;
 
 import com.sugudheenu.domain.Post;
 import com.sugudheenu.domain.User;
+import com.sugudheenu.repository.TimeLine;
 
 import java.util.ArrayList;
 import java.util.HashMap;

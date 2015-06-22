@@ -1,5 +1,5 @@
 package com.sugudheenu.commandline
-import com.sugudheenu.repository.InMemoryTimeLine
+import com.sugudheenu.ports.InMemoryTimeLine
 import org.junit.Rule
 import org.junit.contrib.java.lang.system.SystemOutRule
 import org.junit.contrib.java.lang.system.TextFromStandardInputStream

@@ -1,7 +1,8 @@
-package com.sugudheenu.repository;
+package com.sugudheenu.ports;
 
 import com.sugudheenu.domain.User;
 import com.sugudheenu.domain.WallPost;
+import com.sugudheenu.repository.Wall;
 
 import java.util.*;
 

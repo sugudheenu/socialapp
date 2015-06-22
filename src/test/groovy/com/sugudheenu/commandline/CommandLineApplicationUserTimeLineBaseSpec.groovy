@@ -1,6 +1,6 @@
 package com.sugudheenu.commandline
 import com.sugudheenu.domain.Post
-import com.sugudheenu.repository.InMemoryTimeLine
+import com.sugudheenu.ports.InMemoryTimeLine
 
 import java.time.Instant
 
