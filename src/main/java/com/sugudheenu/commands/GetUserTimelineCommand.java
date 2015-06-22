@@ -1,7 +1,7 @@
 package com.sugudheenu.commands;
 
 import com.sugudheenu.domain.User;
-import com.sugudheenu.repository.TimeLine;
+import com.sugudheenu.ports.repository.TimeLine;
 
 import java.util.List;
 import java.util.function.Consumer;

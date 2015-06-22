@@ -1,6 +1,6 @@
 package com.sugudheenu.commandline;
 
-import com.sugudheenu.ports.InMemoryTimeLine;
+import com.sugudheenu.adaptors.repository.InMemoryTimeLine;
 
 /**
  * Command line social application main

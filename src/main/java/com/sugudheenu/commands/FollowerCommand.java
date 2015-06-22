@@ -2,7 +2,7 @@ package com.sugudheenu.commands;
 
 import com.sugudheenu.domain.User;
 import com.sugudheenu.ports.FollowerNotifier;
-import com.sugudheenu.repository.Followers;
+import com.sugudheenu.ports.repository.Followers;
 
 import java.util.List;
 import java.util.function.Consumer;

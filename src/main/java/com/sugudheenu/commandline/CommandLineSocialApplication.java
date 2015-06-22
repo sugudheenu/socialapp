@@ -1,8 +1,8 @@
 package com.sugudheenu.commandline;
 
-import com.sugudheenu.ports.InMemoryFollowers;
-import com.sugudheenu.ports.InMemoryWall;
-import com.sugudheenu.repository.TimeLine;
+import com.sugudheenu.adaptors.repository.InMemoryFollowers;
+import com.sugudheenu.adaptors.repository.InMemoryWall;
+import com.sugudheenu.ports.repository.TimeLine;
 
 import java.util.Scanner;
 

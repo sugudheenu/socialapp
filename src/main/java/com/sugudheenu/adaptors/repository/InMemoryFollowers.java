@@ -1,7 +1,7 @@
-package com.sugudheenu.ports;
+package com.sugudheenu.adaptors.repository;
 
 import com.sugudheenu.domain.User;
-import com.sugudheenu.repository.Followers;
+import com.sugudheenu.ports.repository.Followers;
 
 import java.util.HashMap;
 import java.util.HashSet;

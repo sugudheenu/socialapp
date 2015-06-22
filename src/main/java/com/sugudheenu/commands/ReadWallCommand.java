@@ -1,7 +1,7 @@
 package com.sugudheenu.commands;
 
 import com.sugudheenu.domain.User;
-import com.sugudheenu.repository.Wall;
+import com.sugudheenu.ports.repository.Wall;
 
 import java.util.List;
 import java.util.function.Consumer;

@@ -1,4 +1,5 @@
-package com.sugudheenu.ports
+package com.sugudheenu.adaptors.repository
+
 import com.sugudheenu.domain.Post
 import com.sugudheenu.domain.User
 import spock.lang.Specification

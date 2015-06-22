@@ -1,10 +1,11 @@
-package com.sugudheenu.ports;
+package com.sugudheenu.adaptors;
 
 import com.sugudheenu.domain.User;
 import com.sugudheenu.domain.WallPost;
-import com.sugudheenu.repository.Followers;
-import com.sugudheenu.repository.TimeLine;
-import com.sugudheenu.repository.Wall;
+import com.sugudheenu.ports.FollowerNotifier;
+import com.sugudheenu.ports.repository.Followers;
+import com.sugudheenu.ports.repository.TimeLine;
+import com.sugudheenu.ports.repository.Wall;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

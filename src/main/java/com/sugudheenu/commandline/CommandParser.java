@@ -2,10 +2,10 @@ package com.sugudheenu.commandline;
 
 import com.sugudheenu.commands.*;
 import com.sugudheenu.ports.FollowerNotifier;
-import com.sugudheenu.ports.SynchronousFollowerNotifier;
-import com.sugudheenu.repository.Followers;
-import com.sugudheenu.repository.TimeLine;
-import com.sugudheenu.repository.Wall;
+import com.sugudheenu.adaptors.SynchronousFollowerNotifier;
+import com.sugudheenu.ports.repository.Followers;
+import com.sugudheenu.ports.repository.TimeLine;
+import com.sugudheenu.ports.repository.Wall;
 
 import static com.sugudheenu.domain.User.user;
 

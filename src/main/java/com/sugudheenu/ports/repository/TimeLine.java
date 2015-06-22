@@ -1,4 +1,4 @@
-package com.sugudheenu.repository;
+package com.sugudheenu.ports.repository;
 
 import com.sugudheenu.domain.Post;
 import com.sugudheenu.domain.User;
