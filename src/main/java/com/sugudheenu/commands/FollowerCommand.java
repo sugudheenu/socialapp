@@ -1,7 +1,7 @@
 package com.sugudheenu.commands;
 
 import com.sugudheenu.domain.User;
-import com.sugudheenu.ports.FolloweNotifier;
+import com.sugudheenu.ports.FollowerNotifier;
 import com.sugudheenu.repository.Followers;
 
 import java.util.List;
@@ -11,9 +11,9 @@ public class FollowerCommand implements Command {
     private final User user;
     private final User followingUser;
     private final Followers followers;
-    private FolloweNotifier followerNotifier;
+    private FollowerNotifier followerNotifier;
 
-    public FollowerCommand(User user, User followingUser, Followers followers, FolloweNotifier followerNotifier) {
+    public FollowerCommand(User user, User followingUser, Followers followers, FollowerNotifier followerNotifier) {
         this.user = user;
         this.followingUser = followingUser;
         this.followers = followers;

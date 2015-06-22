@@ -12,11 +12,7 @@ public class Post implements Comparable<Post> {
         this.message = message;
         this.timestamp = timestamp;
     }
-
-    public Instant getTimestamp() {
-        return timestamp;
-    }
-
+    
     public static Post post(String message, Instant timestamp) {
         return new Post(message,timestamp);
     }

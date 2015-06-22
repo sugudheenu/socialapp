@@ -29,10 +29,10 @@ class CommandLineSocialApplicationBaseSpec extends Specification {
 
     def applicationReceivesCommand() {
         input.provideLines(*commands)
-        applicationStars()
+        applicationStarts()
     }
 
-    def applicationStars() {
+    def applicationStarts() {
         application.run()
     }
 }

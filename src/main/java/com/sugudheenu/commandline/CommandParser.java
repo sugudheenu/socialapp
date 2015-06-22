@@ -1,7 +1,7 @@
 package com.sugudheenu.commandline;
 
 import com.sugudheenu.commands.*;
-import com.sugudheenu.ports.FolloweNotifier;
+import com.sugudheenu.ports.FollowerNotifier;
 import com.sugudheenu.ports.SynchronousFollowerNotifier;
 import com.sugudheenu.repository.Followers;
 import com.sugudheenu.repository.TimeLine;
@@ -13,7 +13,7 @@ public class CommandParser {
     private final TimeLine timeLine;
     private final Followers followers;
     private final Wall wall;
-    private final FolloweNotifier followerNotifier;
+    private final FollowerNotifier followerNotifier;
 
     public CommandParser(TimeLine timeLine, Followers followers, Wall wall) {
         this.timeLine = timeLine;

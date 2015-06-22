@@ -3,12 +3,11 @@ package com.sugudheenu.commandline
 class CommandLineSocialApplicationRoundTripUserTimeLineSpec extends CommandLineApplicationUserTimeLineBaseSpec {
 
     def "can read the posts that got written" () {
-        def bob = bob()
         given:
-            bob.posts(post("I don't like working on Sundays!"))
+            bob().posts(post("I don't like working on Sundays!"))
         when:
-            bob.viewsHisTimeLine()
+            bob().viewsHisTimeLine()
         then:
-            bob.canSee("I don't like working on Sundays! (Just Now)")
+            bob().canSee("I don't like working on Sundays! (Just Now)")
     }
 }

@@ -6,7 +6,7 @@ class CommandLineSocialApplicationStartUpSpec extends CommandLineSocialApplicati
 
     def "starts up with a command prompt"() {
         when:
-            applicationStars();
+            applicationStarts();
         then:
             userCanSee(PROMPT);
     }

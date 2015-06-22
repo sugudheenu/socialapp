@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * the back fill asynchronously. This would probably be an interface and I would have tested if
  * the notification was received when the command gets executed.
  */
-public class SynchronousFollowerNotifier implements com.sugudheenu.ports.FolloweNotifier {
+public class SynchronousFollowerNotifier implements FollowerNotifier {
     private Followers followers;
     private final TimeLine timeLine;
     private final Wall wall;

@@ -3,7 +3,7 @@ package com.sugudheenu.commands;
 import com.sugudheenu.domain.Post;
 import com.sugudheenu.domain.User;
 import com.sugudheenu.domain.WallPost;
-import com.sugudheenu.ports.FolloweNotifier;
+import com.sugudheenu.ports.FollowerNotifier;
 import com.sugudheenu.repository.TimeLine;
 import com.sugudheenu.repository.Wall;
 
@@ -19,9 +19,9 @@ public class PostUsersCommand implements Command {
     private final String message;
     private final TimeLine timeLine;
     private Wall wall;
-    private FolloweNotifier followerNotifier;
+    private FollowerNotifier followerNotifier;
 
-    public PostUsersCommand(User user, String message, TimeLine timeLine, Wall wall, FolloweNotifier followerNotifier) {
+    public PostUsersCommand(User user, String message, TimeLine timeLine, Wall wall, FollowerNotifier followerNotifier) {
         this.user = user;
         this.message = message;
         this.timeLine = timeLine;
