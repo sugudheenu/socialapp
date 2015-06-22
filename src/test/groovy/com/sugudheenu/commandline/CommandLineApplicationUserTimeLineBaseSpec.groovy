@@ -62,7 +62,7 @@ class CommandLineApplicationUserTimeLineBaseSpec extends CommandLineSocialApplic
 
         def viewsTimeLineOf(UserDsl user) {
             commands.add(user.name)
-            applicationReceivesCommand(*commands)
+            applicationReceivesCommand()
         }
 
         void canSeeNothing() {
@@ -75,7 +75,7 @@ class CommandLineApplicationUserTimeLineBaseSpec extends CommandLineSocialApplic
 
         def viewsHisTimeLine() {
             commands.add(name)
-            applicationReceivesCommand(*commands)
+            applicationReceivesCommand()
         }
 
         def follows(UserDsl userToFollow) {
@@ -85,7 +85,7 @@ class CommandLineApplicationUserTimeLineBaseSpec extends CommandLineSocialApplic
 
         def viewsHisWall() {
             commands.add("$name wall")
-            applicationReceivesCommand(*commands)
+            applicationReceivesCommand()
         }
     }
 }

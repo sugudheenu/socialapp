@@ -18,8 +18,9 @@ class CommandLineSocialApplicationStartUpSpec extends CommandLineSocialApplicati
             userCanSee(PROMPT, PROMPT, PROMPT);
     }
 
-    def userEnters(String... commands) {
-        applicationReceivesCommand(commands)
+    def userEnters(String... input) {
+        commands.addAll(input)
+        applicationReceivesCommand()
     }
 
     void userCanSee(String... expected) {

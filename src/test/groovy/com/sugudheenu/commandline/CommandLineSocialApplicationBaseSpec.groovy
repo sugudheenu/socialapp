@@ -27,8 +27,8 @@ class CommandLineSocialApplicationBaseSpec extends Specification {
         return output.getLog()
     }
 
-    def applicationReceivesCommand(String... commands) {
-        input.provideLines(commands)
+    def applicationReceivesCommand() {
+        input.provideLines(*commands)
         applicationStars()
     }
 
