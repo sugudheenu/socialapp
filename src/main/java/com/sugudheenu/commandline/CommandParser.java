@@ -18,13 +18,13 @@ public class CommandParser {
         this.timeLine = timeLine;
         this.followers = followers;
         this.wall = wall;
-        followerBackFill = new FollowerBackFill(timeLine, wall);
+        followerBackFill = new FollowerBackFill(followers, timeLine, wall);
     }
 
     public Command parse(String input) {
         if (input.contains("->")) {
             String[] args = input.split("->");
-            return new PostUsersCommand(user(args[0]), args[1].trim(), timeLine, wall);
+            return new PostUsersCommand(user(args[0]), args[1].trim(), timeLine, wall, followerBackFill);
         } else if (input.contains("follows")) {
             String[] args = input.split("follows");
             return new FollowerCommand(user(args[0]), user(args[1]), followers, followerBackFill);

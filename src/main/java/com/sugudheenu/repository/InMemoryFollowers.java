@@ -11,6 +11,11 @@ public class InMemoryFollowers implements Followers {
     private Map<User,Set<User>> followers = new HashMap<>();
     @Override
     public void follows(User user, User userToFollow) {
-        followers.computeIfAbsent(user, k -> new HashSet<>()).add(userToFollow);
+        followers.computeIfAbsent(userToFollow, k -> new HashSet<>()).add(user);
+    }
+
+    @Override
+    public Set<User> getFollowers(User user) {
+        return followers.getOrDefault(user, new HashSet<>());
     }
 }

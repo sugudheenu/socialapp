@@ -24,4 +24,8 @@ public class InMemoryTimeLine implements TimeLine {
                 .sorted((post1, post2) -> post2.compareTo(post1))
                 .collect(toList());
     }
+
+    public void clear() {
+        posts.clear();
+    }
 }

@@ -70,7 +70,7 @@ class CommandLineApplicationUserTimeLineBaseSpec extends CommandLineSocialApplic
         }
 
         def posts(PostDsl... postDsl) {
-            commands = postDsl.collect { "$name -> $it.message" }
+            commands.addAll(postDsl.collect { "$name -> $it.message" })
         }
 
         def viewsHisTimeLine() {
